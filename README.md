@@ -13,7 +13,7 @@ Powered by [JDI Light](https://github.com/jdi-testing/jdi-light) and Selenium
 
 4. Logs: Observe test run results in Console log
 
-5. Reporting: After running tests just run **allure:serve** in maven plugins
+5. Reporting: After running tests just run "mvn allure:serve" in maven plugins
 
 6. Use as template for your project: 
     * just remove all content from **src/main/.../example** folder, add your package you Page Objects

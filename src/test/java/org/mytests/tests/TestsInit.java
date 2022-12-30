@@ -1,6 +1,7 @@
 package org.mytests.tests;
 
 import org.mytests.tests.testng.TestNGListener;
+import org.mytests.uiobjects.example.site.ApparelSiteUK;
 import org.mytests.uiobjects.example.site.SiteJdi;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -14,7 +15,7 @@ import static com.epam.jdi.light.settings.WebSettings.logger;
 public interface TestsInit {
     @BeforeSuite(alwaysRun = true)
     public default void setUp() {
-        openSite(SiteJdi.class);
+        openSite(ApparelSiteUK.class);
         logger.info("Run Tests");
     }
 
