@@ -4,6 +4,7 @@ import com.epam.jdi.light.elements.common.UIElement;
 import com.epam.jdi.light.elements.complex.JList;
 import com.epam.jdi.light.elements.complex.Menu;
 import com.epam.jdi.light.elements.composite.Form;
+import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import org.mytests.uiobjects.example.entities.User;
@@ -12,6 +13,7 @@ import org.mytests.uiobjects.example.site.pages.*;
 import org.openqa.selenium.WebElement;
 
 //@JSite("https://jdi-testing.github.io/jdi-light/")
+@JSite("https://jdi.epam.com/")
 public class SiteJdi {
     public static HomePage homePage;
     public static JDIPerformancePage performancePage;
