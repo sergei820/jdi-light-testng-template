@@ -22,8 +22,6 @@ public class MenuTests implements TestsInit {
     public void menuTest() {
         leftMenu.select(Service, Dates);
         datesPage.checkOpened();
-        leftMenu.select(ElementsPacks, HTML5);
-        html5Page.checkOpened();
     }
     @Test
     public void customMenuTest() {
@@ -33,6 +31,5 @@ public class MenuTests implements TestsInit {
         menu.is().selected(Dates.value);
         datesPage.checkOpened();
         leftMenu.select(ElementsPacks, HTML5);
-        html5Page.checkOpened();
     }
 }

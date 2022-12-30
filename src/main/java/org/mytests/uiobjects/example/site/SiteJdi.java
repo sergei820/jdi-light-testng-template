@@ -20,7 +20,6 @@ public class SiteJdi {
     public static ContactFormPage contactFormPage;
     public static ContactsPage contactsPage;
     public static DatesPage datesPage;
-    public static Html5Page html5Page;
     public static UsersPage usersPage;
     @Css("form") public static Form<User> loginForm;
 

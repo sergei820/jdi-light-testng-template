@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import static com.epam.jdi.light.elements.composite.WebPage.openUrl;
 import static org.mytests.uiobjects.example.site.ApparelSiteUK.homePage;
+//import static org.mytests.uiobjects.example.site.pages.HomePage.accessories;
 
 @Listeners(TestNGListener.class)
 public class IterationOneTests implements TestsInit {
@@ -20,8 +21,10 @@ public class IterationOneTests implements TestsInit {
     //Test case for adding a good in the basket
     @Test
     public void addGoodInTheBasket() {
-        //openUrl("https://apparel-uk.local:9002/", "ucstorefront/en");
-        homePage.shouldBeOpened();
+        openUrl("https://apparel-uk.local:9002/ucstorefront/en");
+        //openUrl(homePage.url);
+        //shouldBeOpened();
+        //accessories.click();
         //Go to Home page
         //In the global header search field, type “shirt”
         //Click search icon next to the field
