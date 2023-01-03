@@ -10,24 +10,21 @@ import org.testng.annotations.Test;
 
 import static com.epam.jdi.light.elements.init.UIFactory.$;
 import static org.mytests.tests.steps.BasePageSteps.compileLocator;
-import static org.mytests.uiobjects.example.model.ProductItemFactory.createAddedToCartProduct;
+import static org.mytests.uiobjects.example.model.ProductItemFactory.getProductToBeAddedToCart;
+import static org.mytests.uiobjects.example.site.ApparelSiteUK.cartPage;
 import static org.mytests.uiobjects.example.site.ApparelSiteUK.homePage;
 import static org.mytests.uiobjects.example.site.pages.SearchResultsPage.ADD_TO_CART_FROM_GRID;
 import static org.mytests.uiobjects.example.site.pages.SearchResultsPage.SEARCH_RESULTS;
 import static org.mytests.uiobjects.example.site.pages.SearchResultsPage.searchResults;
 import static org.mytests.uiobjects.example.site.pages.SearchResultsPage.searchResultsMessage;
-import static org.mytests.uiobjects.example.site.sections.AddToCartLayer.addToCartLayerHeader;
-import static org.mytests.uiobjects.example.site.sections.AddToCartLayer.checkoutButton;
-import static org.mytests.uiobjects.example.site.sections.AddToCartLayer.itemName;
-import static org.mytests.uiobjects.example.site.sections.AddToCartLayer.itemPrice;
-import static org.mytests.uiobjects.example.site.sections.AddToCartLayer.itemQuantity;
-import static org.mytests.uiobjects.example.site.sections.AddToCartLayer.itemSize;
+import static org.mytests.uiobjects.example.site.sections.AddToCartForm.addToCartLayerHeader;
+import static org.mytests.uiobjects.example.site.sections.AddToCartForm.checkoutButton;
 import static org.mytests.uiobjects.example.site.sections.MainHeader.searchButton;
 import static org.mytests.uiobjects.example.site.sections.MainHeader.searchInput;
 import static org.testng.Assert.assertEquals;
 
 @Listeners(TestNGListener.class)
-public class IterationOneTests implements TestsInit {
+public class IterationOneTests extends BaseTest implements TestsInit {
 
     //Test case for adding a good in the basket
     @Test
@@ -69,11 +66,13 @@ public class IterationOneTests implements TestsInit {
         //Expected: “Added to your shopping bag” popup is displayed
         assertEquals(addToCartLayerHeader.getText(), "Added to your shopping bag");
         //Remember item name, size, quantity, and price
-        ProductItem itemToBuy = createAddedToCartProduct();
+        ProductItem itemToBuy = getProductToBeAddedToCart();
         //Click Check Out
         checkoutButton.click();
         //Expected: Cart page is displayed
+        cartPage.shouldBeOpened();
         //Validate that data of the added item is correct: name, size, quantity, price
+        ProductItem itemInCart = cartPageSteps.getAddedToCartItem();
     }
 
 

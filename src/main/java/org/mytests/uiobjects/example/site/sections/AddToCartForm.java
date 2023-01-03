@@ -3,7 +3,7 @@ package org.mytests.uiobjects.example.site.sections;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import org.openqa.selenium.WebElement;
 
-public class AddToCartLayer {
+public class AddToCartForm {
 
     @Css("#cboxTitle span")
     public static WebElement addToCartLayerHeader;
