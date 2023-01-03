@@ -10,6 +10,4 @@ import org.mytests.uiobjects.example.site.pages.HomePage;
 public class ApparelSiteUK {
 
     public static HomePage homePage;
-
-    @UI(".navigation__overflow") public static JList<MenuItem> menu;
 }
