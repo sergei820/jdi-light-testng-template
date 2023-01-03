@@ -1,6 +1,7 @@
 package org.mytests.tests.example;
 
 import org.mytests.tests.steps.CartPageSteps;
+import org.mytests.uiobjects.example.site.pages.CartPage;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;

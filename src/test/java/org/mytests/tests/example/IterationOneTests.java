@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import static com.epam.jdi.light.elements.init.UIFactory.$;
 import static org.mytests.tests.steps.BasePageSteps.compileLocator;
+import static org.mytests.uiobjects.example.model.ProductItemFactory.getAddedToCartItem;
 import static org.mytests.uiobjects.example.model.ProductItemFactory.getProductToBeAddedToCart;
 import static org.mytests.uiobjects.example.site.ApparelSiteUK.cartPage;
 import static org.mytests.uiobjects.example.site.ApparelSiteUK.homePage;
@@ -68,7 +69,7 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         //Expected: Cart page is displayed
         cartPage.shouldBeOpened();
         //Validate that data of the added item is correct: name, size, quantity, price
-        ProductItem itemInCart = cartPageSteps.getAddedToCartItem();
+        ProductItem itemInCart = getAddedToCartItem();
         assertEquals(itemToBuy.getName(), itemInCart.getName());
         assertEquals(itemToBuy.getSize(), itemInCart.getSize());
         assertEquals(itemToBuy.getQuantity(), itemInCart.getQuantity());

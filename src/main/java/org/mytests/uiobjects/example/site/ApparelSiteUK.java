@@ -12,4 +12,5 @@ public class ApparelSiteUK {
 
     public static HomePage homePage;
     public static CartPage cartPage;
+
 }
