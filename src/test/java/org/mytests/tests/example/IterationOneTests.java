@@ -29,18 +29,18 @@ public class IterationOneTests extends BaseTest implements TestsInit {
     //Test case for adding a good in the basket
     @Test
     public void addGoodInTheBasket() {
+        //Go to Home page
         WebPage.openUrl("https://apparel-uk.local:9002/ucstorefront/en");
         if($("button#details-button").isVisible()) {
             $("button#details-button").click();
             $("a#proceed-link").click();
         }
-        //Go to Home page
         //In the global header search field, type “shirt”
-        //Click search icon next to the field
-        //Expected: a search results page is displayed with “You searched for “shirt”” header
-        homePage.shouldBeOpened();
+        //homePage.shouldBeOpened();
         searchInput.sendKeys("shirt");
+        //Click search icon next to the field
         searchButton.click();
+        //Expected: a search results page is displayed with “You searched for “shirt”” header
         assertEquals(searchResultsMessage.getText(), "You searched for \"shirt\"");
         String shirtItemLocator = null;
         WebElement shirtItem;
@@ -59,10 +59,6 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         }
         //Click cart button under some shirt
         $(shirtItemLocator + ADD_TO_CART_FROM_GRID).click();
-
-
-
-
         //Expected: “Added to your shopping bag” popup is displayed
         assertEquals(addToCartLayerHeader.getText(), "Added to your shopping bag");
         //Remember item name, size, quantity, and price
@@ -73,6 +69,10 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         cartPage.shouldBeOpened();
         //Validate that data of the added item is correct: name, size, quantity, price
         ProductItem itemInCart = cartPageSteps.getAddedToCartItem();
+        assertEquals(itemToBuy.getName(), itemInCart.getName());
+        assertEquals(itemToBuy.getSize(), itemInCart.getSize());
+        assertEquals(itemToBuy.getQuantity(), itemInCart.getQuantity());
+        assertEquals(itemToBuy.getPrice(), itemInCart.getPrice());
     }
 
 
