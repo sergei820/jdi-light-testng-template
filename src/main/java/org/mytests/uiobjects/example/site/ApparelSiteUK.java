@@ -6,7 +6,7 @@ import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import org.mytests.uiobjects.example.site.custom.MenuItem;
 import org.mytests.uiobjects.example.site.pages.HomePage;
 
-@JSite("https://apparel-uk.local:9002/")
+@JSite("https://apparel-uk.local:9002/ucstorefront/en/")
 public class ApparelSiteUK {
 
     public static HomePage homePage;
