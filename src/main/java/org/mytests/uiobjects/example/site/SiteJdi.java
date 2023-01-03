@@ -16,10 +16,6 @@ import org.openqa.selenium.WebElement;
 @JSite("https://jdi.epam.com/")
 public class SiteJdi {
     public static HomePage homePage;
-    public static ContactFormPage contactFormPage;
-    public static ContactsPage contactsPage;
-    public static DatesPage datesPage;
-    public static UsersPage usersPage;
     @Css("form") public static Form<User> loginForm;
 
     @Css(".profile-photo [ui=label]") public static UIElement userName;

@@ -15,17 +15,4 @@ import org.openqa.selenium.WebElement;
 @Url("ucstorefront/en") @Title("\n\t\tApparel Site UK | Homepage")
 public class HomePage extends WebPage {
 
-    //@Css("[title='Accessories']")
-    //public static UIElement accessories;
-    @UI(".navigation__overflow") public static Menu topHorizontalMenu;
-
-    @FindBy(id="js-site-search-input")
-    public static WebElement searchInput;
-
-    @WaitAfterAction(2)
-    @Css("button[class='btn btn-link js_search_button']")
-    public static WebElement searchButton;
-
-    @Css(".results>h1")
-    public static WebElement searchResultsMessage;
 }
