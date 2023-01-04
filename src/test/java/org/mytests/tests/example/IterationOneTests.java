@@ -41,7 +41,8 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         //Expected: Page with accessories item cards is displayed
         //accessoriesPage.shouldBeOpened();
         //Apply “Shop by price” filter: select £0-£19.99 and £20-£49.99 values
-
+        accessoriesPageSteps.applyFilter("Shop by price", "£0-£19.99");
+        accessoriesPageSteps.applyFilter("Shop by price", "£20-£49.99");
         //In the “Sort by” dropdown, select “Price (lowest first)” option
         //Remember name and price of the first item
         //Click first item

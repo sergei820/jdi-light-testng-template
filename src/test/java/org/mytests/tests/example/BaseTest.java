@@ -1,5 +1,6 @@
 package org.mytests.tests.example;
 
+import org.mytests.tests.steps.AccessoriesPageSteps;
 import org.mytests.tests.steps.AddToCartFormSteps;
 import org.mytests.tests.steps.CartPageSteps;
 import org.mytests.tests.steps.HomePageSteps;
@@ -20,6 +21,7 @@ public class BaseTest {
     MainHeaderSteps mainHeaderSteps;
     SearchResultsPageSteps searchResultsPageSteps;
     AddToCartFormSteps addToCartFormSteps;
+    AccessoriesPageSteps accessoriesPageSteps;
 
     @BeforeSuite
     public void setUp() {
