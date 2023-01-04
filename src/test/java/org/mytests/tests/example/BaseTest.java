@@ -7,7 +7,6 @@ import org.mytests.uiobjects.example.site.pages.SearchResultsPage;
 import org.mytests.uiobjects.example.site.sections.AddToCartForm;
 import org.mytests.uiobjects.example.site.sections.MainHeader;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 public class BaseTest {
@@ -16,6 +15,7 @@ public class BaseTest {
 
     @BeforeSuite
     public void setUp() {
+        ApparelSiteUK.cartPage = new CartPage();
         ApparelSiteUK.mainHeader = new MainHeader();
         cartPageSteps = new CartPageSteps();
         ApparelSiteUK.searchResultsPage = new SearchResultsPage();

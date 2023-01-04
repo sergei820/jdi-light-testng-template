@@ -20,7 +20,7 @@ public class ProductItemFactory {
         return new ProductItem(
                 CartPage.getItemName().getText(),
                 CartPage.getItemSize().getText(),
-                CartPage.getItemQuantity().getCssValue("value"),
+                CartPage.getItemQuantity().getAttribute("value"),
                 CartPage.getItemPrice().getText()
         );
     }
