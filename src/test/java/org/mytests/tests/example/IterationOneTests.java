@@ -31,16 +31,17 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         cartPageSteps.compareItemToBuyWithItemInCart();
     }
 
-
-    //Testcase 2
     //Testcase for writing a review for the good
     @Test
     public void writeReviewTest() {
         //Go to Home page
         homePageSteps.openHomePage();
         //Click “Accessories” in the global header
+        mainHeaderSteps.clickMenuItem("Accessories");
         //Expected: Page with accessories item cards is displayed
+        //accessoriesPage.shouldBeOpened();
         //Apply “Shop by price” filter: select £0-£19.99 and £20-£49.99 values
+
         //In the “Sort by” dropdown, select “Price (lowest first)” option
         //Remember name and price of the first item
         //Click first item

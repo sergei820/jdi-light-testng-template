@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 
 public class MainHeader extends WebPage {
 
+    public static final String MAIN_HEADER_ITEM = "//div[@class='navigation__overflow']//a[text()='REPLACE']";
     @WaitTimeout(4)
     @Css("input#js-site-search-input")
     public static WebElement searchInput;
