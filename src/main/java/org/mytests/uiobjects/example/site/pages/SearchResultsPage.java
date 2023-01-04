@@ -11,7 +11,7 @@ import java.util.List;
 @Url("search/")
 public class SearchResultsPage extends WebPage {
 
-    public static final String SEARCH_RESULTS = "//ul[class='product__listing product__grid']/div[REPLACE]";
+    public static final String SEARCH_RESULTS = "//ul[@class='product__listing product__grid']/div[REPLACE]";
     public static final String ADD_TO_CART_FROM_GRID = "/div[@class='addtocart']//form[@class='add_to_cart_form']";
 
     @Css(".results>h1")

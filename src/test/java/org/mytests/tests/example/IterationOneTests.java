@@ -1,6 +1,7 @@
 package org.mytests.tests.example;
 
 import com.epam.jdi.light.elements.composite.WebPage;
+import org.glassfish.jaxb.runtime.v2.runtime.reflect.Lister;
 import org.mytests.tests.TestsInit;
 import org.mytests.tests.testng.TestNGListener;
 import org.mytests.uiobjects.example.model.ProductItem;
@@ -44,16 +45,16 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         //Expected: a search results page is displayed with “You searched for “shirt”” header
         assertEquals(searchResultsMessage.getText(), "You searched for \"shirt\"");
         String shirtItemLocator = null;
-        WebElement shirtItem;
+        /*WebElement shirtItem;
         shirtItem = searchResults
                 .stream()
                 .filter(item -> item.getText().contains("shirt"))
                 .findFirst()
                 .orElse(null);
-        shirtItem.click();
+        shirtItem.click();*/
 
-        for(int i = 0; i < searchResults.size(); i++) {
-            if($(compileLocator(SEARCH_RESULTS, String.valueOf(i)) + "/a").getText().contains("shirt")) {
+        for(int i = 1; i < searchResults.size(); i++) {
+            if($(compileLocator(SEARCH_RESULTS, String.valueOf(i)) + "/a").getAttribute("title").contains("Shirt")) {
                 shirtItemLocator = compileLocator(SEARCH_RESULTS, String.valueOf(i));
                 break;
             }
@@ -61,7 +62,7 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         //Click cart button under some shirt
         $(shirtItemLocator + ADD_TO_CART_FROM_GRID).click();
         //Expected: “Added to your shopping bag” popup is displayed
-        assertEquals(addToCartLayerHeader.getText(), "Added to your shopping bag");
+        assertEquals(addToCartLayerHeader.getText(), "Added to Your Shopping Bag");
         //Remember item name, size, quantity, and price
         ProductItem itemToBuy = getProductToBeAddedToCart();
         //Click Check Out

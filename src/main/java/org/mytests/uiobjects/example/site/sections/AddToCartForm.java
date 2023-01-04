@@ -1,12 +1,13 @@
 package org.mytests.uiobjects.example.site.sections;
 
+import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import lombok.Data;
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
 
 @Data
-public class AddToCartForm {
+public class AddToCartForm extends WebPage {
 
     @Css("#cboxTitle span")
     public static WebElement addToCartLayerHeader;
