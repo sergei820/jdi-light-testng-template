@@ -1,26 +1,9 @@
 package org.mytests.tests.example;
 
-import com.epam.jdi.light.elements.composite.WebPage;
 import org.mytests.tests.TestsInit;
 import org.mytests.tests.testng.TestNGListener;
-import org.mytests.uiobjects.example.model.ProductItem;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
-
-import static com.epam.jdi.light.elements.init.UIFactory.$;
-import static org.mytests.tests.steps.BasePageSteps.compileLocator;
-import static org.mytests.uiobjects.example.model.ProductItemFactory.getAddedToCartItem;
-import static org.mytests.uiobjects.example.model.ProductItemFactory.getProductToBeAddedToCart;
-import static org.mytests.uiobjects.example.site.pages.SearchResultsPage.ADD_TO_CART_FROM_GRID;
-import static org.mytests.uiobjects.example.site.pages.SearchResultsPage.SEARCH_RESULTS;
-import static org.mytests.uiobjects.example.site.pages.SearchResultsPage.searchResults;
-import static org.mytests.uiobjects.example.site.pages.SearchResultsPage.searchResultsMessage;
-import static org.mytests.uiobjects.example.site.sections.AddToCartForm.addToCartLayerHeader;
-import static org.mytests.uiobjects.example.site.sections.AddToCartForm.checkoutButton;
-import static org.mytests.uiobjects.example.site.sections.MainHeader.searchButton;
-import static org.mytests.uiobjects.example.site.sections.MainHeader.searchInput;
-import static org.testng.Assert.assertEquals;
 
 @Listeners(TestNGListener.class)
 public class IterationOneTests extends BaseTest implements TestsInit {
@@ -29,71 +12,50 @@ public class IterationOneTests extends BaseTest implements TestsInit {
     @Test
     public void addGoodInTheBasket() {
         //Go to Home page
-        WebPage.openUrl("https://apparel-uk.local:9002/ucstorefront/en");
-        if($("button#details-button").isVisible()) {
-            $("button#details-button").click();
-            $("a#proceed-link").click();
-        }
-        //homePage.shouldBeOpened();
+        homePageSteps.openHomePage();
         //In the global header search field, type “shirt”
-        searchInput.sendKeys("shirt");
-        //Click search icon next to the field
-        searchButton.click();
+        mainHeaderSteps.searchOnSite("shirt");
         //Expected: a search results page is displayed with “You searched for “shirt”” header
-        assertEquals(searchResultsMessage.getText(), "You searched for \"shirt\"");
-        String shirtItemLocator = null;
-        /*WebElement shirtItem;
-        shirtItem = searchResults
-                .stream()
-                .filter(item -> item.getText().contains("shirt"))
-                .findFirst()
-                .orElse(null);
-        shirtItem.click();*/
-
-        for(int i = 1; i < searchResults.size(); i++) {
-            if($(compileLocator(SEARCH_RESULTS, String.valueOf(i)) + "/a").getAttribute("title").contains("Shirt")) {
-                shirtItemLocator = compileLocator(SEARCH_RESULTS, String.valueOf(i));
-                break;
-            }
-        }
+        searchResultsPageSteps.checkSearchResultHeader("You searched for \"shirt\"");
         //Click cart button under some shirt
-        $(shirtItemLocator + ADD_TO_CART_FROM_GRID).click();
+        searchResultsPageSteps.addItemToCart("Shirt");
         //Expected: “Added to your shopping bag” popup is displayed
-        assertEquals(addToCartLayerHeader.getText(), "Added to Your Shopping Bag");
+        addToCartFormSteps.checkPopupText("Added to Your Shopping Bag");
         //Remember item name, size, quantity, and price
-        ProductItem itemToBuy = getProductToBeAddedToCart();
+        addToCartFormSteps.rememberItemParameters();
         //Click Check Out
-        checkoutButton.click();
+        addToCartFormSteps.checkOut();
         //Expected: Cart page is displayed
         //cartPage.shouldBeOpened();
         //Validate that data of the added item is correct: name, size, quantity, price
-        ProductItem itemInCart = getAddedToCartItem();
-        assertEquals(itemToBuy.getName(), itemInCart.getName());
-        assertEquals(itemToBuy.getSize().replace("Size ", ""), itemInCart.getSize());
-        assertEquals(itemToBuy.getQuantity().replace("Quantity Added ", ""), itemInCart.getQuantity());
-        assertEquals(itemToBuy.getPrice(), itemInCart.getPrice());
+        cartPageSteps.compareItemToBuyWithItemInCart();
     }
 
 
     //Testcase 2
     //Testcase for writing a review for the good
-    //Go to Home page
-    //Click “Accessories” in the global header
-    //Expected: Page with accessories item cards is displayed
-    //Apply “Shop by price” filter: select £0-£19.99 and £20-£49.99 values
-    //In the “Sort by” dropdown, select “Price (lowest first)” option
-    //Remember name and price of the first item
-    //Click first item
-    //Expected: item page has correct item name and price
-    //Click Reviews at the bottom of the page
-    //Click Write a review
-    //Fill in the form with the following data:
-    //Review title: “My review”
-    //Review description: “I’m so excited, I would buy it one more time”
-    //Rating: 5
-    //Your name: “John”
-    //Click Submit review
-    //Expected: “Thank you for your review” message is displayed on top of the page
+    @Test
+    public void writeReviewTest() {
+        //Go to Home page
+        homePageSteps.openHomePage();
+        //Click “Accessories” in the global header
+        //Expected: Page with accessories item cards is displayed
+        //Apply “Shop by price” filter: select £0-£19.99 and £20-£49.99 values
+        //In the “Sort by” dropdown, select “Price (lowest first)” option
+        //Remember name and price of the first item
+        //Click first item
+        //Expected: item page has correct item name and price
+        //Click Reviews at the bottom of the page
+        //Click Write a review
+        //Fill in the form with the following data:
+        //Review title: “My review”
+        //Review description: “I’m so excited, I would buy it one more time”
+        //Rating: 5
+        //Your name: “John”
+        //Click Submit review
+        //Expected: “Thank you for your review” message is displayed on top of the page
+
+    }
 
 
 
