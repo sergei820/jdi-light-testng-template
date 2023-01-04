@@ -1,11 +1,9 @@
 package org.mytests.tests.example;
 
 import com.epam.jdi.light.elements.composite.WebPage;
-import org.glassfish.jaxb.runtime.v2.runtime.reflect.Lister;
 import org.mytests.tests.TestsInit;
 import org.mytests.tests.testng.TestNGListener;
 import org.mytests.uiobjects.example.model.ProductItem;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -37,8 +35,8 @@ public class IterationOneTests extends BaseTest implements TestsInit {
             $("button#details-button").click();
             $("a#proceed-link").click();
         }
+        homePage.shouldBeOpened();
         //In the global header search field, type “shirt”
-        //homePage.shouldBeOpened();
         searchInput.sendKeys("shirt");
         //Click search icon next to the field
         searchButton.click();
