@@ -7,6 +7,7 @@ import org.mytests.uiobjects.example.model.ProductItem;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+
 import static com.epam.jdi.light.elements.init.UIFactory.$;
 import static org.mytests.tests.steps.BasePageSteps.compileLocator;
 import static org.mytests.uiobjects.example.model.ProductItemFactory.getAddedToCartItem;
