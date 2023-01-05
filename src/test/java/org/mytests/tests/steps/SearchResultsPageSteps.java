@@ -1,5 +1,6 @@
 package org.mytests.tests.steps;
 
+import org.mytests.uiobjects.example.model.ProductItem;
 import org.openqa.selenium.WebElement;
 
 import static com.epam.jdi.light.elements.init.UIFactory.$;
@@ -14,6 +15,8 @@ import static org.mytests.uiobjects.example.site.pages.SearchResultsPage.searchR
 import static org.testng.Assert.assertEquals;
 
 public class SearchResultsPageSteps {
+
+    public static ProductItem itemOnSearchResultsPage;
 
     public void checkSearchResultHeader(String searchResultHeader) {
         assertEquals(searchResultsMessage.getText(), searchResultHeader);
@@ -39,6 +42,11 @@ public class SearchResultsPageSteps {
     }
 
     public void rememberItemParameters(int itemNumber) {
-        getItemOnSearchResultsPage(itemNumber);
+        itemOnSearchResultsPage = getItemOnSearchResultsPage(itemNumber);
+    }
+
+    public void clickOnItem(int itemNumber) {
+        //because XPath index == +1 comparing to Collection index
+        searchResults.get(itemNumber-1).click();
     }
 }

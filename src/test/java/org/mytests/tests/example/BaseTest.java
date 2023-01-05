@@ -5,12 +5,14 @@ import org.mytests.tests.steps.AddToCartFormSteps;
 import org.mytests.tests.steps.CartPageSteps;
 import org.mytests.tests.steps.FilterFormSteps;
 import org.mytests.tests.steps.HomePageSteps;
+import org.mytests.tests.steps.ItemPageSteps;
 import org.mytests.tests.steps.MainHeaderSteps;
 import org.mytests.tests.steps.SearchResultsPageSteps;
 import org.mytests.uiobjects.example.site.ApparelSiteUK;
 import org.mytests.uiobjects.example.site.pages.AccessoriesPage;
 import org.mytests.uiobjects.example.site.pages.CartPage;
 import org.mytests.uiobjects.example.site.pages.HomePage;
+import org.mytests.uiobjects.example.site.pages.ItemPage;
 import org.mytests.uiobjects.example.site.pages.SearchResultsPage;
 import org.mytests.uiobjects.example.site.sections.AddToCartForm;
 import org.mytests.uiobjects.example.site.sections.FilterForm;
@@ -27,6 +29,7 @@ public class BaseTest {
     AddToCartFormSteps addToCartFormSteps;
     AccessoriesPageSteps accessoriesPageSteps;
     FilterFormSteps filterFormSteps;
+    ItemPageSteps itemPageSteps;
 
     @BeforeSuite
     public void setUp() {
@@ -37,6 +40,7 @@ public class BaseTest {
         cartPageSteps = new CartPageSteps();
         accessoriesPageSteps = new AccessoriesPageSteps();
         filterFormSteps = new FilterFormSteps();
+        itemPageSteps = new ItemPageSteps();
 
         ApparelSiteUK.homePage = new HomePage();
         ApparelSiteUK.cartPage = new CartPage();
@@ -45,6 +49,7 @@ public class BaseTest {
         ApparelSiteUK.addToCartForm = new AddToCartForm();
         ApparelSiteUK.mainHeader = new MainHeader();
         ApparelSiteUK.filterForm = new FilterForm();
+        ApparelSiteUK.itemPage = new ItemPage();
     }
 
     @AfterSuite

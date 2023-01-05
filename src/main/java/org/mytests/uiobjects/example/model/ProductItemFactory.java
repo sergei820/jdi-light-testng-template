@@ -3,6 +3,7 @@ package org.mytests.uiobjects.example.model;
 import org.mytests.uiobjects.example.site.pages.CartPage;
 import org.mytests.uiobjects.example.site.sections.AddToCartForm;
 
+import static org.mytests.uiobjects.example.site.ApparelSiteUK.itemPage;
 import static org.mytests.uiobjects.example.site.ApparelSiteUK.searchResultsPage;
 
 public class ProductItemFactory {
@@ -31,5 +32,9 @@ public class ProductItemFactory {
         return new ProductItem(searchResultsPage.getProductNameForItemNumber(itemNumber),
                 searchResultsPage.getProductPriceForItemNumber(itemNumber)
         );
+    }
+
+    public static ProductItem getItemParametersOnItemPage() {
+        return new ProductItem(itemPage.getItemName().getText(), itemPage.getItemPrice().getText());
     }
 }

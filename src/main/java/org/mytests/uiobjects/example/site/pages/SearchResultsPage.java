@@ -17,7 +17,7 @@ public class SearchResultsPage extends WebPage {
     public static final String SEARCH_RESULTS = "//ul[@class='product__listing product__grid']/div[REPLACE]";
     public static final String ADD_TO_CART_FROM_GRID = "/div[@class='addtocart']//form[@class='add_to_cart_form']";
     public static final String PRODUCT_NAME = "//div[@class='product-item'][REPLACE]//a[@class='name']";
-    public static final String PRODUCT_PRICE = "//div[@class='product-item'][REPLACE]//a[@class='price']";
+    public static final String PRODUCT_PRICE = "//div[@class='product-item'][REPLACE]//div[@class='price']";
 
     @Css(".results>h1")
     public static WebElement searchResultsMessage;

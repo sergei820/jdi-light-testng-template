@@ -48,7 +48,9 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         //Remember name and price of the first item
         searchResultsPageSteps.rememberItemParameters(1);
         //Click first item
+        searchResultsPageSteps.clickOnItem(1);
         //Expected: item page has correct item name and price
+        itemPageSteps.compareSearchedItemWithItemOnItemPage();
         //Click Reviews at the bottom of the page
         //Click Write a review
         //Fill in the form with the following data:
@@ -72,8 +74,9 @@ public class IterationOneTests extends BaseTest implements TestsInit {
     //Expected: Login page is displayed
     //Fill in the form in the “Returning customer” section with the following data: email address: example@mail.ru password: 1234
     //Click Log in
-    //Expected: you were successfully logged in, Login page is no more displayed ! Actual (the mistake will be here): “Your username or password
-    //was incorrect.” message is displayed on top of the page, you are still on the Login page”
+    //Expected: you were successfully logged in, Login page is no more displayed !
+    //Actual (the mistake will be here): “Your username or password was incorrect.”
+    //message is displayed on top of the page, you are still on the Login page”
 
 
 
