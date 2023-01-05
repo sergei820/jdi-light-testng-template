@@ -64,24 +64,29 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         //Click Submit review
         itemPageSteps.clickSubmitReviewButton();
         //Expected: “Thank you for your review” message is displayed on top of the page
-        itemPageSteps.checkPostReviewResultMessage("Thank you for your review");
+        itemPageSteps.checkActionResultMessage("Thank you for your review");
     }
 
-
-
-
+    @Test
     //Testcase 3
     //Test case for login with mistake(!)
-    //Go to Home page
-    //Expected: tab title is “Apparel Site UK | Homepage”
-    //Click “Sign In / Register” link in the global header
-    //Expected: Login page is displayed
-    //Fill in the form in the “Returning customer” section with the following data: email address: example@mail.ru password: 1234
-    //Click Log in
-    //Expected: you were successfully logged in, Login page is no more displayed !
-    //Actual (the mistake will be here): “Your username or password was incorrect.”
-    //message is displayed on top of the page, you are still on the Login page”
-
-
-
+    public void loginWithMistake() {
+        //Go to Home page
+        homePageSteps.openHomePage();
+        //Expected: tab title is “Apparel Site UK | Homepage”
+        homePageSteps.checkPageTitle("Apparel Site UK | Homepage");
+        //Click “Sign In / Register” link in the global header
+        mainHeaderSteps.clickLoginRegisterButton();
+        //Expected: Login page is displayed
+        loginPageSteps.checkThatPageIsDisplayed();
+        //Fill in the form in the “Returning customer” section with the following data: email address: example@mail.ru password: 1234
+        loginPageSteps.fillInLogInForm("example@mail.ru", "1234");
+        //Click Log in
+        loginPageSteps.clickLogInButton();
+        //Expected: you were successfully logged in, Login page is no more displayed !
+        //Actual (the mistake will be here): “Your username or password was incorrect.”
+        loginPageSteps.checkActionResultMessage("you were successfully logged in, Login page is no more displayed !");
+        //message is displayed on top of the page, you are still on the Login page”
+        loginPageSteps.checkThatPageIsDisplayed();
+    }
 }

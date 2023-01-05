@@ -3,12 +3,11 @@ package org.mytests.tests.steps;
 import org.mytests.uiobjects.example.model.ProductItem;
 
 import static org.mytests.tests.steps.SearchResultsPageSteps.itemOnSearchResultsPage;
-import static org.mytests.uiobjects.example.model.ProductItemFactory.getItemOnSearchResultsPage;
 import static org.mytests.uiobjects.example.model.ProductItemFactory.getItemParametersOnItemPage;
 import static org.mytests.uiobjects.example.site.ApparelSiteUK.itemPage;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class ItemPageSteps {
+public class ItemPageSteps extends BasePageSteps {
 
     public ProductItem itemPageProductItem;
 
@@ -37,11 +36,11 @@ public class ItemPageSteps {
     }
 
     public void clickSubmitReviewButton() {
-        itemPage.getSubmitReviewButton().click();
-    }
-
-    public void checkPostReviewResultMessage(String postReviewResultMessage) {
-        assertEquals(postReviewResultMessage, itemPage.getPostReviewResultMessage().getText());
+        try{
+            itemPage.getSubmitReviewButton().click();
+        } catch (RuntimeException exception) {
+            System.out.println(exception.getMessage());
+        }
     }
 
     private void rateProduct(String ratingValue) {

@@ -1,13 +1,11 @@
 package org.mytests.uiobjects.example.site;
 
-import com.epam.jdi.light.elements.complex.JList;
 import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
-import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
-import org.mytests.uiobjects.example.site.custom.MenuItem;
 import org.mytests.uiobjects.example.site.pages.AccessoriesPage;
 import org.mytests.uiobjects.example.site.pages.CartPage;
 import org.mytests.uiobjects.example.site.pages.HomePage;
 import org.mytests.uiobjects.example.site.pages.ItemPage;
+import org.mytests.uiobjects.example.site.pages.LoginPage;
 import org.mytests.uiobjects.example.site.pages.SearchResultsPage;
 import org.mytests.uiobjects.example.site.sections.AddToCartForm;
 import org.mytests.uiobjects.example.site.sections.FilterForm;
@@ -24,5 +22,6 @@ public class ApparelSiteUK {
     public static AddToCartForm addToCartForm;
     public static FilterForm filterForm;
     public static ItemPage itemPage;
+    public static LoginPage loginPage;
 
 }

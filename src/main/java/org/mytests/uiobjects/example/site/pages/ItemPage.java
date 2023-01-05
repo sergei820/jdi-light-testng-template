@@ -3,10 +3,11 @@ package org.mytests.uiobjects.example.site.pages;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.XPath;
-import lombok.Data;
+import com.epam.jdi.light.ui.html.elements.common.Button;
+import lombok.Getter;
 import org.openqa.selenium.WebElement;
 
-@Data
+@Getter
 public class ItemPage extends WebPage {
 
     @Css("div[class='product-details page-title'] .name")
@@ -34,7 +35,7 @@ public class ItemPage extends WebPage {
     private WebElement reviewAuthorNameInput;
 
     @Css("button[value='Submit Review']")
-    private WebElement submitReviewButton;
+    private Button submitReviewButton;
 
     @Css(".global-alerts > div")
     private WebElement postReviewResultMessage;

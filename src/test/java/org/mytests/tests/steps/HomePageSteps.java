@@ -4,7 +4,7 @@ import com.epam.jdi.light.elements.composite.WebPage;
 
 import static com.epam.jdi.light.elements.init.UIFactory.$;
 
-public class HomePageSteps {
+public class HomePageSteps extends BasePageSteps {
 
     public void openHomePage() {
         WebPage.openUrl("https://apparel-uk.local:9002/ucstorefront/en");
@@ -13,4 +13,6 @@ public class HomePageSteps {
             $("a#proceed-link").click();
         }
     }
+
+
 }
