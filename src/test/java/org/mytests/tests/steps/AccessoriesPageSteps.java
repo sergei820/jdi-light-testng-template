@@ -1,8 +1,12 @@
 package org.mytests.tests.steps;
 
+import org.mytests.uiobjects.example.site.ApparelSiteUK;
+
 public class AccessoriesPageSteps {
 
-    public void applyFilter(String filterName, String filterValue) {
 
+
+    public void checkThatPageIsDisplayed() {
+        ApparelSiteUK.accessoriesPage.checkOpened();
     }
 }

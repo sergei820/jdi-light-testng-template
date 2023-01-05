@@ -3,6 +3,8 @@ package org.mytests.uiobjects.example.model;
 import org.mytests.uiobjects.example.site.pages.CartPage;
 import org.mytests.uiobjects.example.site.sections.AddToCartForm;
 
+import static org.mytests.uiobjects.example.site.ApparelSiteUK.searchResultsPage;
+
 public class ProductItemFactory {
 
     //CartPage cartPage = new CartPage();
@@ -22,6 +24,12 @@ public class ProductItemFactory {
                 CartPage.getItemSize().getText(),
                 CartPage.getItemQuantity().getAttribute("value"),
                 CartPage.getItemPrice().getText()
+        );
+    }
+
+    public static ProductItem getItemOnSearchResultsPage(int itemNumber) {
+        return new ProductItem(searchResultsPage.getProductNameForItemNumber(itemNumber),
+                searchResultsPage.getProductPriceForItemNumber(itemNumber)
         );
     }
 }

@@ -26,7 +26,7 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         //Click Check Out
         addToCartFormSteps.checkOut();
         //Expected: Cart page is displayed
-        //cartPage.shouldBeOpened();
+        cartPageSteps.checkThatPageIsDisplayed();
         //Validate that data of the added item is correct: name, size, quantity, price
         cartPageSteps.compareItemToBuyWithItemInCart();
     }
@@ -39,12 +39,14 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         //Click “Accessories” in the global header
         mainHeaderSteps.clickMenuItem("Accessories");
         //Expected: Page with accessories item cards is displayed
-        //accessoriesPage.shouldBeOpened();
+        accessoriesPageSteps.checkThatPageIsDisplayed();
         //Apply “Shop by price” filter: select £0-£19.99 and £20-£49.99 values
-        accessoriesPageSteps.applyFilter("Shop by price", "£0-£19.99");
-        accessoriesPageSteps.applyFilter("Shop by price", "£20-£49.99");
+        filterFormSteps.clickFilterCheckbox("£0-£19.99");
+        filterFormSteps.clickFilterCheckbox("£20-£49.99");
         //In the “Sort by” dropdown, select “Price (lowest first)” option
+        filterFormSteps.selectSortByDropdownValue("Price (lowest first)");
         //Remember name and price of the first item
+        searchResultsPageSteps.rememberItemParameters(1);
         //Click first item
         //Expected: item page has correct item name and price
         //Click Reviews at the bottom of the page
