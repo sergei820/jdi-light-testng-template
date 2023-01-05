@@ -16,7 +16,14 @@ public class MainHeaderSteps {
     }
 
     public void clickMenuItem(String menuItemName) {
-        $(compileLocator(MAIN_HEADER_ITEM, menuItemName)).click();
+        try{
+            switch(menuItemName) {
+                case "Accessories":
+                    mainHeader.getMenuAccessories().click();
+            }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void clickLoginRegisterButton() {

@@ -5,9 +5,7 @@ import org.testng.Assert;
 
 public class AccessoriesPageSteps {
 
-
-
     public void checkThatPageIsDisplayed() {
-        Assert.assertTrue(ApparelSiteUK.accessoriesPage.isOpened());
+        ApparelSiteUK.accessoriesPage.shouldBeOpened();
     }
 }

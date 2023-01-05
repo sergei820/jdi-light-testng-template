@@ -15,7 +15,7 @@ public class CartPageSteps {
         assertEquals(itemToBuy.getName(), itemInCart.getName());
         assertEquals(itemToBuy.getSize().replace("Size ", ""), itemInCart.getSize());
         assertEquals(itemToBuy.getQuantity().replace("Quantity Added ", ""), itemInCart.getQuantity());
-        assertEquals(itemToBuy.getPrice(), itemInCart.getPrice());
+        assertEquals(itemToBuy.getPrice(), itemInCart.getPrice().replace("Item price: ", ""));
     }
 
     public void checkThatPageIsDisplayed() {

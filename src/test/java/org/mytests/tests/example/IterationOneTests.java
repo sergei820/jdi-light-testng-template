@@ -67,9 +67,8 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         itemPageSteps.checkActionResultMessage("Thank you for your review");
     }
 
-    @Test
-    //Testcase 3
     //Test case for login with mistake(!)
+    @Test
     public void loginWithMistake() {
         //Go to Home page
         homePageSteps.openHomePage();
