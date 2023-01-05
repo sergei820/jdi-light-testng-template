@@ -26,15 +26,29 @@ public class ItemPageSteps {
         itemPage.getWriteReviewButton().click();
     }
 
-    public void fillInReviewTitle(String reviewTitle) {
+    public void fillInReviewSection(String reviewTitle, String reviewDescription, String ratingValue, String authorName) {
         itemPage.getReviewTitleInput().sendKeys(reviewTitle);
-    }
-
-    public void fillInReviewDescription(String reviewDescription) {
         itemPage.getReviewDescriptionTextarea().sendKeys(reviewDescription);
+        if(ratingValue != null) {
+            rateProduct(ratingValue);
+        }
+        itemPage.getReviewAuthorNameInput().sendKeys(authorName);
+        itemPage.getSubmitReviewButton().click();
     }
 
-    public void rateAsFiveStars() {
-        itemPage.getFiveStarRateElement().click();
+    public void clickSubmitReviewButton() {
+        itemPage.getSubmitReviewButton().click();
+    }
+
+    public void checkPostReviewResultMessage(String postReviewResultMessage) {
+        assertEquals(postReviewResultMessage, itemPage.getPostReviewResultMessage().getText());
+    }
+
+    private void rateProduct(String ratingValue) {
+        switch (ratingValue) {
+            case "5":
+                itemPage.getFiveStarRateElement().click();
+                break;
+        }
     }
 }

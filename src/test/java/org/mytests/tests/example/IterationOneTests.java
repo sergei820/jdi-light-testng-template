@@ -56,16 +56,15 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         //Click Write a review
         itemPageSteps.clickWriteReview();
         //Fill in the form with the following data:
-        //Review title: “My review”
-        itemPageSteps.fillInReviewTitle("My review");
-        //Review description: “I’m so excited, I would buy it one more time”
-        itemPageSteps.fillInReviewDescription("I’m so excited, I would buy it one more time");
-        //Rating: 5
-        itemPageSteps.rateAsFiveStars();
-        //Your name: “John”
+            //Review title: “My review”
+            //Review description: “I’m so excited, I would buy it one more time”
+            //Rating: 5
+            //Your name: “John”
+        itemPageSteps.fillInReviewSection("My review", "I’m so excited, I would buy it one more time", "5", "John");
         //Click Submit review
+        itemPageSteps.clickSubmitReviewButton();
         //Expected: “Thank you for your review” message is displayed on top of the page
-
+        itemPageSteps.checkPostReviewResultMessage("Thank you for your review");
     }
 
 

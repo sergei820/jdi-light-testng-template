@@ -29,4 +29,13 @@ public class ItemPage extends WebPage {
 
     @Css("div[class='rating-stars js-writeReviewStars']:last-child")
     private WebElement fiveStarRateElement;
+
+    @Css("#alias")
+    private WebElement reviewAuthorNameInput;
+
+    @Css("button[value='Submit Review']")
+    private WebElement submitReviewButton;
+
+    @Css(".global-alerts > div")
+    private WebElement postReviewResultMessage;
 }
