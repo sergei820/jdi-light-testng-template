@@ -2,7 +2,6 @@ package org.mytests.tests;
 
 import org.mytests.tests.testng.TestNGListener;
 import org.mytests.uiobjects.example.site.ApparelSiteUK;
-import org.mytests.uiobjects.example.site.SiteJdi;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
@@ -14,13 +13,13 @@ import static com.epam.jdi.light.settings.WebSettings.logger;
 @Listeners(TestNGListener.class)
 public interface TestsInit {
     @BeforeSuite(alwaysRun = true)
-    public default void setUp() {
+    default void setUp() {
         openSite(ApparelSiteUK.class);
         logger.info("Run Tests");
     }
 
     @AfterSuite(alwaysRun = true)
-    public default void teardown() {
+    default void teardown() {
         killAllSeleniumDrivers();
     }
 }
