@@ -26,16 +26,7 @@ import static com.epam.jdi.light.settings.WebSettings.logger;
 import static com.jdiai.tools.LinqUtils.last;
 import static java.lang.System.currentTimeMillis;
 
-public class TestNGListener implements IInvokedMethodListener, ITestListener {    private Safe<Long> start = new Safe<>(0L);
-
-    public void onTestFailure(ITestResult result) {
-        if(!result.isSuccess()) createAttachment();
-    }
-
-    @Attachment(type = "image/png")
-    private byte[] createAttachment() {
-        return ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
-    }
+public class TestNGListener implements IInvokedMethodListener {    private Safe<Long> start = new Safe<>(0L);
 
     @Override
     public void beforeInvocation(IInvokedMethod m, ITestResult tr) {
@@ -68,7 +59,6 @@ public class TestNGListener implements IInvokedMethodListener, ITestListener {  
                 }
             }
         }
-        if(!tr.isSuccess()) takeScreen();
     }
 
     private String getTestResult(ITestResult result) {

@@ -19,6 +19,5 @@ public class BasePageSteps {
 
     public void checkActionResultMessage(String postReviewResultMessage) {
         jdiAssert(itemPage.getPostReviewResultMessage().getText(), Matchers.containsString(postReviewResultMessage));
-        //Assert.assertTrue(itemPage.getPostReviewResultMessage().getText().contains(postReviewResultMessage));
     }
 }
