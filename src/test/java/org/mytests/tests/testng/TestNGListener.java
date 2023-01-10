@@ -6,8 +6,12 @@ package org.mytests.tests.testng;
  */
 
 import com.jdiai.tools.Safe;
+import io.qameta.allure.Attachment;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
+import org.testng.ITestListener;
 import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.annotations.Test;
@@ -16,12 +20,22 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static com.epam.jdi.light.driver.ScreenshotMaker.takeScreen;
+import static com.epam.jdi.light.driver.WebDriverFactory.getDriver;
 import static com.epam.jdi.light.settings.WebSettings.TEST_NAME;
 import static com.epam.jdi.light.settings.WebSettings.logger;
 import static com.jdiai.tools.LinqUtils.last;
 import static java.lang.System.currentTimeMillis;
 
-public class TestNGListener implements IInvokedMethodListener {    private Safe<Long> start = new Safe<>(0L);
+public class TestNGListener implements IInvokedMethodListener, ITestListener {    private Safe<Long> start = new Safe<>(0L);
+
+    public void onTestFailure(ITestResult result) {
+        if(!result.isSuccess()) createAttachment();
+    }
+
+    @Attachment(type = "image/png")
+    private byte[] createAttachment() {
+        return ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
+    }
 
     @Override
     public void beforeInvocation(IInvokedMethod m, ITestResult tr) {
@@ -54,6 +68,7 @@ public class TestNGListener implements IInvokedMethodListener {    private Safe<
                 }
             }
         }
+        if(!tr.isSuccess()) takeScreen();
     }
 
     private String getTestResult(ITestResult result) {

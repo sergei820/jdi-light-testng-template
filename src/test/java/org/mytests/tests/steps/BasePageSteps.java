@@ -1,8 +1,9 @@
 package org.mytests.tests.steps;
 
 import com.epam.jdi.light.elements.composite.WebPage;
-import org.testng.Assert;
+import org.hamcrest.Matchers;
 
+import static com.epam.jdi.light.asserts.core.SoftAssert.jdiAssert;
 import static org.mytests.uiobjects.example.site.ApparelSiteUK.itemPage;
 import static org.testng.Assert.assertEquals;
 
@@ -17,6 +18,7 @@ public class BasePageSteps {
     }
 
     public void checkActionResultMessage(String postReviewResultMessage) {
-        Assert.assertTrue(itemPage.getPostReviewResultMessage().getText().contains(postReviewResultMessage));
+        jdiAssert(itemPage.getPostReviewResultMessage().getText(), Matchers.containsString(postReviewResultMessage));
+        //Assert.assertTrue(itemPage.getPostReviewResultMessage().getText().contains(postReviewResultMessage));
     }
 }

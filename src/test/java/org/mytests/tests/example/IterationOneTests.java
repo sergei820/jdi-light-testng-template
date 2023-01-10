@@ -64,7 +64,7 @@ public class IterationOneTests extends BaseTest implements TestsInit {
         //Click Submit review
         itemPageSteps.clickSubmitReviewButton();
         //Expected: “Thank you for your review” message is displayed on top of the page
-        itemPageSteps.checkActionResultMessage("Thank you for your review");
+        itemPageSteps.checkActionResultMessage("Thank you for your review.");
     }
 
     //Test case for login with mistake(!)
