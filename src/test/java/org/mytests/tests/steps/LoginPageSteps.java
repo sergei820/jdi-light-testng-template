@@ -2,7 +2,6 @@ package org.mytests.tests.steps;
 
 import org.testng.Assert;
 
-import static com.epam.jdi.light.asserts.core.SoftAssert.jdiAssert;
 import static org.mytests.uiobjects.example.site.ApparelSiteUK.loginPage;
 
 public class LoginPageSteps extends BasePageSteps {

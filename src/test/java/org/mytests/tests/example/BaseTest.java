@@ -22,6 +22,10 @@ import org.mytests.uiobjects.example.site.sections.MainHeader;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import static com.epam.jdi.light.elements.composite.WebPage.openSite;
+import static com.epam.jdi.light.elements.composite.WebPage.openUrl;
+import static com.epam.jdi.light.elements.init.PageFactory.initSite;
+
 public class BaseTest {
 
     CartPageSteps cartPageSteps;
@@ -55,6 +59,8 @@ public class BaseTest {
         ApparelSiteUK.filterForm = new FilterForm();
         ApparelSiteUK.itemPage = new ItemPage();
         ApparelSiteUK.loginPage = new LoginPage();
+
+        openSite(ApparelSiteUK.class);
     }
 
     @AfterSuite
