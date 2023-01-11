@@ -2,8 +2,11 @@ package org.mytests.tests.example;
 
 import org.mytests.tests.TestsInit;
 import org.mytests.tests.testng.TestNGListener;
+import org.mytests.uiobjects.example.site.ApparelSiteUK;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import static com.epam.jdi.light.elements.init.PageFactory.initSite;
 
 @Listeners(TestNGListener.class)
 public class IterationOneTests extends BaseTest implements TestsInit {
@@ -70,6 +73,8 @@ public class IterationOneTests extends BaseTest implements TestsInit {
     //Test case for login with mistake(!)
     @Test
     public void loginWithMistake() {
+
+        initSite(ApparelSiteUK.class);
         //Go to Home page
         homePageSteps.openHomePage();
         //Expected: tab title is “Apparel Site UK | Homepage”

@@ -8,8 +8,6 @@ import static org.mytests.uiobjects.example.site.ApparelSiteUK.searchResultsPage
 
 public class ProductItemFactory {
 
-    //CartPage cartPage = new CartPage();
-
     public static ProductItem getProductToBeAddedToCart() {
         return new ProductItem(
                 AddToCartForm.getItemName().getText(),

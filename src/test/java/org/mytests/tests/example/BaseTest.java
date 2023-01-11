@@ -20,23 +20,23 @@ import org.mytests.uiobjects.example.site.sections.AddToCartForm;
 import org.mytests.uiobjects.example.site.sections.FilterForm;
 import org.mytests.uiobjects.example.site.sections.MainHeader;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 
-import static com.epam.jdi.light.elements.composite.WebPage.openSite;
-import static com.epam.jdi.light.elements.composite.WebPage.openUrl;
 import static com.epam.jdi.light.elements.init.PageFactory.initSite;
 
 public class BaseTest {
 
-    CartPageSteps cartPageSteps;
-    HomePageSteps homePageSteps;
-    MainHeaderSteps mainHeaderSteps;
-    SearchResultsPageSteps searchResultsPageSteps;
-    AddToCartFormSteps addToCartFormSteps;
-    AccessoriesPageSteps accessoriesPageSteps;
-    FilterFormSteps filterFormSteps;
-    ItemPageSteps itemPageSteps;
-    LoginPageSteps loginPageSteps;
+    static CartPageSteps cartPageSteps;
+    static HomePageSteps homePageSteps;
+    static MainHeaderSteps mainHeaderSteps;
+    static SearchResultsPageSteps searchResultsPageSteps;
+    static AddToCartFormSteps addToCartFormSteps;
+    static AccessoriesPageSteps accessoriesPageSteps;
+    static FilterFormSteps filterFormSteps;
+    static ItemPageSteps itemPageSteps;
+    static LoginPageSteps loginPageSteps;
 
     @BeforeSuite
     public void setUp() {
@@ -60,7 +60,7 @@ public class BaseTest {
         ApparelSiteUK.itemPage = new ItemPage();
         ApparelSiteUK.loginPage = new LoginPage();
 
-        openSite(ApparelSiteUK.class);
+        initSite(ApparelSiteUK.class);
     }
 
     @AfterSuite
