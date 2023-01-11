@@ -6,6 +6,7 @@ import org.mytests.uiobjects.example.site.ApparelSiteUK;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import static com.epam.jdi.light.elements.composite.WebPage.openSite;
 import static com.epam.jdi.light.elements.init.PageFactory.initSite;
 
 @Listeners(TestNGListener.class)
@@ -74,7 +75,7 @@ public class IterationOneTests extends BaseTest implements TestsInit {
     @Test
     public void loginWithMistake() {
 
-        initSite(ApparelSiteUK.class);
+        openSite(ApparelSiteUK.class);
         //Go to Home page
         homePageSteps.openHomePage();
         //Expected: tab title is “Apparel Site UK | Homepage”
