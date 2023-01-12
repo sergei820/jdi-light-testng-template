@@ -76,7 +76,6 @@ public class IterationOneTests extends BaseTest {
     //Test case for login with mistake(!)
     @Test
     public void loginWithMistake() {
-        openSite(ApparelSiteUK.class);
         //Go to Home page
         homePageSteps.openHomePage();
         //Expected: tab title is “Apparel Site UK | Homepage”
