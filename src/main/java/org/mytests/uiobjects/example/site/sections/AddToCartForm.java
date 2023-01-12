@@ -1,7 +1,7 @@
 package org.mytests.uiobjects.example.site.sections;
 
 import com.epam.jdi.light.elements.composite.WebPage;
-import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import lombok.Data;
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
@@ -9,25 +9,25 @@ import org.openqa.selenium.WebElement;
 @Data
 public class AddToCartForm extends WebPage {
 
-    @Css("#cboxTitle span")
+    @UI("#cboxTitle span")
     public static WebElement addToCartLayerHeader;
 
     @Getter
-    @Css("#cboxLoadedContent .name")
+    @UI("#cboxLoadedContent .name")
     public static WebElement itemName;
 
     @Getter
-    @Css("#cboxLoadedContent .qty")
+    @UI("#cboxLoadedContent .qty")
     public static WebElement itemQuantity;
 
     @Getter
-    @Css("#cboxLoadedContent .itemSize")
+    @UI("#cboxLoadedContent .itemSize")
     public static WebElement itemSize;
 
     @Getter
-    @Css("#cboxLoadedContent .price")
+    @UI("#cboxLoadedContent .price")
     public static WebElement itemPrice;
 
-    @Css("#cboxLoadedContent a[class~=add-to-cart-button]")
+    @UI("#cboxLoadedContent a[class~=add-to-cart-button]")
     public static WebElement checkoutButton;
 }

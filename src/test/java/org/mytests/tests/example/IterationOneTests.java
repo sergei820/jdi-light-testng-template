@@ -1,13 +1,15 @@
 package org.mytests.tests.example;
 
+import org.hamcrest.Matchers;
 import org.mytests.tests.TestsInit;
 import org.mytests.tests.testng.TestNGListener;
 import org.mytests.uiobjects.example.site.ApparelSiteUK;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import static com.epam.jdi.light.asserts.core.SoftAssert.jdiAssert;
 import static com.epam.jdi.light.elements.composite.WebPage.openSite;
-import static com.epam.jdi.light.elements.init.PageFactory.initSite;
+import static org.mytests.uiobjects.example.site.ApparelSiteUK.itemPage;
 
 @Listeners(TestNGListener.class)
 public class IterationOneTests extends BaseTest implements TestsInit {
@@ -74,7 +76,6 @@ public class IterationOneTests extends BaseTest implements TestsInit {
     //Test case for login with mistake(!)
     @Test
     public void loginWithMistake() {
-
         openSite(ApparelSiteUK.class);
         //Go to Home page
         homePageSteps.openHomePage();

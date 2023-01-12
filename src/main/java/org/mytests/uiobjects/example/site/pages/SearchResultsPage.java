@@ -3,6 +3,7 @@ package org.mytests.uiobjects.example.site.pages;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.XPath;
 import org.openqa.selenium.WebElement;
 
@@ -19,10 +20,10 @@ public class SearchResultsPage extends WebPage {
     public static final String PRODUCT_NAME = "//div[@class='product-item'][REPLACE]//a[@class='name']";
     public static final String PRODUCT_PRICE = "//div[@class='product-item'][REPLACE]//div[@class='price']";
 
-    @Css(".results>h1")
+    @UI(".results>h1")
     public static WebElement searchResultsMessage;
 
-    @Css("*[class='product__listing product__grid'] > div")
+    @UI("*[class='product__listing product__grid'] > div")
     public static List<WebElement> searchResults;
 
     public String getProductNameForItemNumber(int itemNumber) {

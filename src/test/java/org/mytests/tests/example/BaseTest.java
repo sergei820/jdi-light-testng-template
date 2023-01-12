@@ -19,12 +19,8 @@ import org.mytests.uiobjects.example.site.pages.SearchResultsPage;
 import org.mytests.uiobjects.example.site.sections.AddToCartForm;
 import org.mytests.uiobjects.example.site.sections.FilterForm;
 import org.mytests.uiobjects.example.site.sections.MainHeader;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-
-import static com.epam.jdi.light.elements.init.PageFactory.initSite;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
 
@@ -38,7 +34,7 @@ public class BaseTest {
     static ItemPageSteps itemPageSteps;
     static LoginPageSteps loginPageSteps;
 
-    @BeforeSuite
+    @BeforeMethod
     public void setUp() {
         homePageSteps = new HomePageSteps();
         mainHeaderSteps = new MainHeaderSteps();
@@ -60,10 +56,10 @@ public class BaseTest {
         ApparelSiteUK.itemPage = new ItemPage();
         ApparelSiteUK.loginPage = new LoginPage();
 
-        initSite(ApparelSiteUK.class);
+        //initSite(ApparelSiteUK.class);
     }
 
-    @AfterSuite
+    @AfterMethod
     public void tearDown() {
     }
 }

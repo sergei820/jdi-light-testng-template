@@ -16,7 +16,7 @@ public class FilterForm extends WebPage {
     public static final String FILTER_CHECKBOX_BY_VALUE = "//span[contains(text(),'REPLACE')]/parent::span";
 
     @WaitTimeout(5)
-    @XPath("//span[contains(text(),'£0-£19.99')]/parent::span")
+    @UI("//span[contains(text(),'£0-£19.99')]/parent::span")
     public static Checkbox priceCheckbox;
 
     @UI("#sortOptions1")

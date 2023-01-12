@@ -2,10 +2,12 @@ package org.mytests.tests.steps;
 
 import com.epam.jdi.light.elements.composite.WebPage;
 import org.hamcrest.Matchers;
+import org.mytests.uiobjects.example.site.pages.ItemPage;
 
 import static com.epam.jdi.light.asserts.core.SoftAssert.jdiAssert;
+import static org.hamcrest.Matchers.containsString;
 import static org.mytests.uiobjects.example.site.ApparelSiteUK.itemPage;
-import static org.testng.Assert.assertEquals;
+import static org.mytests.uiobjects.example.site.pages.ItemPage.postReviewResultMessage;
 
 public class BasePageSteps {
 
@@ -14,10 +16,12 @@ public class BasePageSteps {
     }
 
     public void checkPageTitle(String expectedPageTitle) {
-        assertEquals(WebPage.getTitle(), expectedPageTitle);
+        jdiAssert(WebPage.getTitle(), Matchers.comparesEqualTo(expectedPageTitle));
+        //assertEquals(WebPage.getTitle(), expectedPageTitle);
     }
 
     public void checkActionResultMessage(String postReviewResultMessage) {
-        jdiAssert(postReviewResultMessage, Matchers.containsString(itemPage.getPostReviewResultMessage().getText()));
+        //ItemPage.postReviewResultMessage.assertThat().text(containsString(postReviewResultMessage);
+        jdiAssert(ItemPage.postReviewResultMessage.getText(), containsString(postReviewResultMessage));
     }
 }

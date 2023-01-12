@@ -2,8 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Iteration One Tests" parallel="methods" thread-count="3">
     <test name="Tests">
-        <classes>
+        <!--<classes>
             <class name="org.mytests.tests.example.IterationOneTests"/>
+        </classes>-->
+        <classes>
+            <class name="org.mytests.tests.example.MyTest"/>
         </classes>
     </test>
     <listeners>
