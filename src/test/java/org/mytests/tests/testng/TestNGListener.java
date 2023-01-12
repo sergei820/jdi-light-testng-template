@@ -6,6 +6,7 @@ package org.mytests.tests.testng;
  */
 
 import com.jdiai.tools.Safe;
+import io.qameta.allure.Attachment;
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestNGMethod;
@@ -37,6 +38,7 @@ public class TestNGListener implements IInvokedMethodListener {    private Safe<
     }
 
     @Override
+    @Attachment(type = "image/jpg")
     public void afterInvocation(IInvokedMethod method, ITestResult tr) {
         if (method.isTestMethod()) {
             String result = getTestResult(tr);
