@@ -7,8 +7,6 @@ import org.mytests.uiobjects.example.site.pages.ItemPage;
 
 import static com.epam.jdi.light.asserts.core.SoftAssert.jdiAssert;
 import static org.hamcrest.Matchers.containsString;
-import static org.mytests.uiobjects.example.site.ApparelSiteUK.itemPage;
-import static org.mytests.uiobjects.example.site.pages.ItemPage.postReviewResultMessage;
 
 public class BasePageSteps {
 
@@ -18,13 +16,11 @@ public class BasePageSteps {
 
     public void checkPageTitle(String expectedPageTitle) {
         jdiAssert(WebPage.getTitle(), Matchers.comparesEqualTo(expectedPageTitle));
-        //assertEquals(WebPage.getTitle(), expectedPageTitle);
     }
 
     @Step
     public void checkActionResultMessage(String postReviewResultMessage) {
-        //ItemPage.postReviewResultMessage.assertThat().text(containsString(postReviewResultMessage);
-        String resultMessage = ItemPage.postReviewResultMessage.getText();
-        jdiAssert(resultMessage, containsString(postReviewResultMessage));
+        //ItemPage.postReviewResultMessage.is().core().text(postReviewResultMessage);
+        jdiAssert(ItemPage.postReviewResultMessage.getText(), containsString(postReviewResultMessage));
     }
 }
