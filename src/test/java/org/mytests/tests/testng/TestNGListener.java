@@ -39,7 +39,6 @@ public class TestNGListener implements IInvokedMethodListener, ITestListener {  
     }
 
     @Override
-    @Attachment(type = "image/jpg")
     public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
         if (method.isTestMethod()) {
             String result = getTestResult(testResult);
