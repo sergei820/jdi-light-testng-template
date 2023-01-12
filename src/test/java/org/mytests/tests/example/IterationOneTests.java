@@ -4,11 +4,13 @@ import org.hamcrest.Matchers;
 import org.mytests.tests.TestsInit;
 import org.mytests.tests.testng.TestNGListener;
 import org.mytests.uiobjects.example.site.ApparelSiteUK;
+import org.mytests.uiobjects.example.site.pages.ItemPage;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static com.epam.jdi.light.asserts.core.SoftAssert.jdiAssert;
 import static com.epam.jdi.light.elements.composite.WebPage.openSite;
+import static org.hamcrest.Matchers.containsString;
 import static org.mytests.uiobjects.example.site.ApparelSiteUK.itemPage;
 
 @Listeners(TestNGListener.class)
@@ -57,6 +59,8 @@ public class IterationOneTests extends BaseTest {
         loginPageSteps.checkThatPageIsDisplayed();
         loginPageSteps.fillInLogInForm("example@mail.ru", "1234");
         loginPageSteps.clickLogInButton();
+        String resultMessage = ItemPage.postReviewResultMessage.getText();
+        jdiAssert(resultMessage, containsString("you were successfully logged in, Login page is no more displayed !"));
         loginPageSteps.checkActionResultMessage("you were successfully logged in, Login page is no more displayed !");
         loginPageSteps.checkThatPageIsDisplayed();
     }

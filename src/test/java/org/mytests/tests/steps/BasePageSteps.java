@@ -1,6 +1,7 @@
 package org.mytests.tests.steps;
 
 import com.epam.jdi.light.elements.composite.WebPage;
+import io.qameta.allure.Step;
 import org.hamcrest.Matchers;
 import org.mytests.uiobjects.example.site.pages.ItemPage;
 
@@ -20,8 +21,10 @@ public class BasePageSteps {
         //assertEquals(WebPage.getTitle(), expectedPageTitle);
     }
 
+    @Step
     public void checkActionResultMessage(String postReviewResultMessage) {
         //ItemPage.postReviewResultMessage.assertThat().text(containsString(postReviewResultMessage);
-        jdiAssert(ItemPage.postReviewResultMessage.getText(), containsString(postReviewResultMessage));
+        String resultMessage = ItemPage.postReviewResultMessage.getText();
+        jdiAssert(resultMessage, containsString(postReviewResultMessage));
     }
 }

@@ -9,6 +9,7 @@ import com.jdiai.tools.Safe;
 import io.qameta.allure.Attachment;
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
+import org.testng.ITestListener;
 import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.annotations.Test;
@@ -22,7 +23,7 @@ import static com.epam.jdi.light.settings.WebSettings.logger;
 import static com.jdiai.tools.LinqUtils.last;
 import static java.lang.System.currentTimeMillis;
 
-public class TestNGListener implements IInvokedMethodListener {    private Safe<Long> start = new Safe<>(0L);
+public class TestNGListener implements IInvokedMethodListener, ITestListener {    private Safe<Long> start = new Safe<>(0L);
 
     @Override
     public void beforeInvocation(IInvokedMethod m, ITestResult tr) {
@@ -39,9 +40,9 @@ public class TestNGListener implements IInvokedMethodListener {    private Safe<
 
     @Override
     @Attachment(type = "image/jpg")
-    public void afterInvocation(IInvokedMethod method, ITestResult tr) {
+    public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
         if (method.isTestMethod()) {
-            String result = getTestResult(tr);
+            String result = getTestResult(testResult);
             logger.step("=== Test '%s' %s [%s] ===", TEST_NAME.get(), result,
                     new SimpleDateFormat("mm:ss.SS")
                             .format(new Date(currentTimeMillis() - start.get())));
@@ -49,8 +50,8 @@ public class TestNGListener implements IInvokedMethodListener {    private Safe<
                 try {
                     takeScreen();
                 } catch (RuntimeException ignored) { }
-                if (tr.getThrowable() != null) {
-                    logger.step("ERROR: " + tr.getThrowable().getMessage());
+                if (testResult.getThrowable() != null) {
+                    logger.step("ERROR: " + testResult.getThrowable().getMessage());
                 } else {
                     logger.step("UNKNOWN ERROR");
                 }
