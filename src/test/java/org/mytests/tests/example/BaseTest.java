@@ -10,6 +10,7 @@ import org.mytests.tests.steps.ItemPageSteps;
 import org.mytests.tests.steps.LoginPageSteps;
 import org.mytests.tests.steps.MainHeaderSteps;
 import org.mytests.tests.steps.SearchResultsPageSteps;
+import org.mytests.tests.testng.TestNGListener;
 import org.mytests.uiobjects.example.site.ApparelSiteUK;
 import org.mytests.uiobjects.example.site.pages.AccessoriesPage;
 import org.mytests.uiobjects.example.site.pages.CartPage;
@@ -22,9 +23,11 @@ import org.mytests.uiobjects.example.site.sections.FilterForm;
 import org.mytests.uiobjects.example.site.sections.MainHeader;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 
 import static com.epam.jdi.light.elements.init.PageFactory.initSite;
 
+@Listeners(TestNGListener.class)
 public class BaseTest implements TestsInit {
 
     static CartPageSteps cartPageSteps;
