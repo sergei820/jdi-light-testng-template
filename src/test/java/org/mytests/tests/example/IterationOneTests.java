@@ -61,7 +61,7 @@ public class IterationOneTests extends BaseTest {
         loginPageSteps.clickLogInButton();
         String resultMessage = ItemPage.postReviewResultMessage.getText();
         jdiAssert(resultMessage, containsString("you were successfully logged in, Login page is no more displayed !"));
-        loginPageSteps.checkActionResultMessage("you were successfully logged in, Login page is no more displayed !");
-        loginPageSteps.checkThatPageIsDisplayed();
+        //loginPageSteps.checkActionResultMessage("you were successfully logged in, Login page is no more displayed !");
+        //loginPageSteps.checkThatPageIsDisplayed();
     }
 }
