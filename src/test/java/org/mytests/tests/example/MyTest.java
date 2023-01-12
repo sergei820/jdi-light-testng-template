@@ -13,7 +13,7 @@ public class MyTest extends BaseTest {
         homePageSteps.openHomePage();
         //Click “Accessories” in the global header
         ApparelSiteUK.homePage.shouldBeOpened();
-        jdiAssert(ApparelSiteUK.mainHeader.getMenuAccessories().getText(), Matchers.containsString("wrong"));
+        jdiAssert(ApparelSiteUK.mainHeader.menuAccessories.getText(), Matchers.containsString("wrong"));
 
     }
 }

@@ -1,5 +1,6 @@
 package org.mytests.tests.example;
 
+import org.mytests.tests.TestsInit;
 import org.mytests.tests.steps.AccessoriesPageSteps;
 import org.mytests.tests.steps.AddToCartFormSteps;
 import org.mytests.tests.steps.CartPageSteps;
@@ -22,7 +23,9 @@ import org.mytests.uiobjects.example.site.sections.MainHeader;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public class BaseTest {
+import static com.epam.jdi.light.elements.init.PageFactory.initSite;
+
+public class BaseTest implements TestsInit {
 
     static CartPageSteps cartPageSteps;
     static HomePageSteps homePageSteps;
@@ -56,7 +59,7 @@ public class BaseTest {
         ApparelSiteUK.itemPage = new ItemPage();
         ApparelSiteUK.loginPage = new LoginPage();
 
-        //initSite(ApparelSiteUK.class);
+        initSite(ApparelSiteUK.class);
     }
 
     @AfterMethod

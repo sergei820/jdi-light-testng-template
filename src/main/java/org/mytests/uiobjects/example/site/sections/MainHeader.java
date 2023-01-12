@@ -23,7 +23,7 @@ public class MainHeader extends WebPage {
 
     @WaitAfterAction(3)
     @UI("//div[@class='navigation__overflow']//a[text()='Accessories']")
-    private WebElement menuAccessories;
+    public static WebElement menuAccessories;
 
     @WaitAfterAction(2)
     @UI("button[class='btn btn-link js_search_button']")

@@ -12,7 +12,7 @@ import static com.epam.jdi.light.elements.composite.WebPage.openSite;
 import static org.mytests.uiobjects.example.site.ApparelSiteUK.itemPage;
 
 @Listeners(TestNGListener.class)
-public class IterationOneTests extends BaseTest implements TestsInit {
+public class IterationOneTests extends BaseTest {
 
     //Test case for adding a good in the basket
     @Test

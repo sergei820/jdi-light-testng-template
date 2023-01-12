@@ -1,9 +1,6 @@
 package org.mytests.tests.steps;
 
-import static com.epam.jdi.light.elements.init.UIFactory.$;
-import static org.mytests.tests.steps.BasePageSteps.compileLocator;
 import static org.mytests.uiobjects.example.site.ApparelSiteUK.mainHeader;
-import static org.mytests.uiobjects.example.site.sections.MainHeader.MAIN_HEADER_ITEM;
 import static org.mytests.uiobjects.example.site.sections.MainHeader.searchButton;
 import static org.mytests.uiobjects.example.site.sections.MainHeader.searchInput;
 
@@ -19,7 +16,7 @@ public class MainHeaderSteps {
         try{
             switch(menuItemName) {
                 case "Accessories":
-                    mainHeader.getMenuAccessories().click();
+                    mainHeader.menuAccessories.click();
             }
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());

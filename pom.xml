@@ -130,34 +130,6 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>phase-1</id>
-                        <phase>test</phase>
-                        <configuration>
-                            <skip>false</skip>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>src/test/resources/general.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>phase-2</id>
-                        <phase>test</phase>
-                        <configuration>
-                            <skip>false</skip>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>src/test/resources/general.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
