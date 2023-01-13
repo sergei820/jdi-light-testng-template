@@ -6,6 +6,8 @@ import org.mytests.uiobjects.example.site.ApparelSiteUK;
 
 import static org.mytests.tests.steps.AddToCartFormSteps.itemToBuy;
 import static org.mytests.uiobjects.example.model.ProductItemFactory.getAddedToCartItem;
+import static org.mytests.uiobjects.example.site.pages.CartPage.itemAction;
+import static org.mytests.uiobjects.example.site.pages.CartPage.removeItemFromCartButton;
 import static org.testng.Assert.assertEquals;
 
 public class CartPageSteps {
@@ -16,6 +18,11 @@ public class CartPageSteps {
         assertEquals(itemToBuy.getSize().replace("Size ", ""), itemInCart.getSize());
         assertEquals(itemToBuy.getQuantity().replace("Quantity Added ", ""), itemInCart.getQuantity());
         assertEquals(itemToBuy.getPrice(), itemInCart.getPrice().replace("Item price: ", ""));
+    }
+
+    public void deleteItemFromCart() {
+        itemAction.click();
+        removeItemFromCartButton.click();
     }
 
     public void checkThatPageIsDisplayed() {

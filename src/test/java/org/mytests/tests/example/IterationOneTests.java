@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class IterationOneTests extends BaseTest {
 
     //Test case for adding a good in the basket
-    @Test
+    @Test(invocationCount = 2)
     public void addGoodInTheBasket() {
         homePageSteps.openHomePage();
         mainHeaderSteps.searchOnSite("shirt");
@@ -19,10 +19,11 @@ public class IterationOneTests extends BaseTest {
         addToCartFormSteps.checkOut();
         cartPageSteps.checkThatPageIsDisplayed();
         cartPageSteps.compareItemToBuyWithItemInCart();
+        cartPageSteps.deleteItemFromCart();
     }
 
     //Testcase for writing a review for the good
-    @Test
+    @Test(invocationCount = 2)
     public void writeReviewTest() {
         //Go to Home page
         homePageSteps.openHomePage();
@@ -42,7 +43,7 @@ public class IterationOneTests extends BaseTest {
     }
 
     //Test case for login with mistake(!)
-    @Test
+    @Test(invocationCount = 2)
     public void loginWithMistake() {
         homePageSteps.openHomePage();
         homePageSteps.checkPageTitle("Apparel Site UK | Homepage");

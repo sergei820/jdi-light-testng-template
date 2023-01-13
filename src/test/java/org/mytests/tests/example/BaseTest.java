@@ -67,5 +67,24 @@ public class BaseTest implements TestsInit {
 
     @AfterMethod
     public void tearDown() {
+        homePageSteps = null;
+        mainHeaderSteps = null;
+        searchResultsPageSteps = null;
+        addToCartFormSteps = null;
+        cartPageSteps = null;
+        accessoriesPageSteps = null;
+        filterFormSteps = null;
+        itemPageSteps = null;
+        loginPageSteps = null;
+
+        ApparelSiteUK.homePage = null;
+        ApparelSiteUK.cartPage = null;
+        ApparelSiteUK.accessoriesPage = null;
+        ApparelSiteUK.searchResultsPage = null;
+        ApparelSiteUK.addToCartForm = null;
+        ApparelSiteUK.mainHeader = null;
+        ApparelSiteUK.filterForm = null;
+        ApparelSiteUK.itemPage = null;
+        ApparelSiteUK.loginPage = null;
     }
 }

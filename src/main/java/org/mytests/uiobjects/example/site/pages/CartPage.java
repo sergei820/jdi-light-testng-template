@@ -27,4 +27,10 @@ public class CartPage extends WebPage {
     @Getter
     @UI(".item__list--item .item__price")
     public static WebElement itemPrice;
+
+    @UI("span[class='glyphicon glyphicon-option-vertical']")
+    public static WebElement itemAction;
+
+    @UI("//a[text()='Remove']")
+    public static WebElement removeItemFromCartButton;
 }

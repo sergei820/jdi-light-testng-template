@@ -32,7 +32,6 @@ public class ItemPageSteps extends BasePageSteps {
             rateProduct(ratingValue);
         }
         itemPage.getReviewAuthorNameInput().sendKeys(authorName);
-        itemPage.getSubmitReviewButton().click();
     }
 
     public void clickSubmitReviewButton() {

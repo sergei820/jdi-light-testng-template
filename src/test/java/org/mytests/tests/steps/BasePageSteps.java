@@ -6,7 +6,6 @@ import org.hamcrest.Matchers;
 import org.mytests.uiobjects.example.site.pages.ItemPage;
 
 import static com.epam.jdi.light.asserts.core.SoftAssert.jdiAssert;
-import static org.hamcrest.Matchers.containsString;
 
 public class BasePageSteps {
 
@@ -20,7 +19,6 @@ public class BasePageSteps {
 
     @Step
     public void checkActionResultMessage(String postReviewResultMessage) {
-        //ItemPage.postReviewResultMessage.is().core().text(postReviewResultMessage);
-        jdiAssert(ItemPage.postReviewResultMessage.getText(), containsString(postReviewResultMessage));
+        ItemPage.postReviewResultMessage.is().core().text(Matchers.containsString(postReviewResultMessage));
     }
 }
